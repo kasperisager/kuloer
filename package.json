@@ -6,8 +6,9 @@
   "repository": "kasperisager/kuloer",
   "author": "Kasper Kronborg Isager <kasperisager@gmail.com>",
   "scripts": {
-    "test": "xo && ava",
-    "coverage": "nyc --reporter=html npm test",
+    "test": "xo && nyc ava",
+    "coverage": "nyc report --reporter=html",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "transpile": "babel lib -d dist",
     "prepublish": "npm run transpile"
   },
@@ -30,6 +31,7 @@
   "devDependencies": {
     "ava": "^0.12.0",
     "babel-cli": "^6.6.4",
+    "coveralls": "^2.11.8",
     "nyc": "^5.6.0",
     "xo": "^0.12.1"
   },
