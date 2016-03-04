@@ -8,10 +8,10 @@ Kulør is a library for working with color units from the [CSS3 Color Module](ht
 
 ## Contents
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [API](#api)
-- [License](#license)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [API](#api)
+-   [License](#license)
 
 ## Installation
 
@@ -32,6 +32,55 @@ contrast(pink, blue);
 
 ## API
 
+### Color
+
+Parse a color string to a color object.
+
+**Parameters**
+
+-   `color` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The color string to parse.
+
+**Properties**
+
+-   `hex` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The color represented as an rgb hex value.
+-   `rgb` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).&lt;[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** The color represented as an rgb triple.
+-   `hsl` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).&lt;[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** The color represented as an hsl triple.
+-   `alpha` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The alpha value of the color.
+
+**Examples**
+
+```javascript
+const red = Color('rgba(255,0,0,.5)');
+
+Color {
+  hex: 0xff0000,
+  rgb: [255, 0, 0],
+  hsl: [0, 1, 0.5],
+  alpha: 0.5
+}
+```
+
+### contrast
+
+Compute the contrast ratio between two colors.
+
+**Parameters**
+
+-   `colorA` **Color** The first color.
+-   `colorB` **Color** The second color.
+
+Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The contrast ratio between the colors.
+
+### luminance
+
+Compute the relative luminance of a color.
+
+**Parameters**
+
+-   `color` **Color** The color to compute the luminance of.
+
+Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The relative luminance of the color.
+
 ## License
 
-Copyright &copy; 2016 [Kasper Kronborg Isager](https://github.com/kasperisager). Licensed under the terms of the [MIT license](LICENSE.md).
+Copyright © 2016 [Kasper Kronborg Isager](https://github.com/kasperisager). Licensed under the terms of the [MIT license](LICENSE.md).
