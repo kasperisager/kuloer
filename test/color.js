@@ -21,6 +21,8 @@ test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', async t 
     t.is(color.hsl[1], hsl[1], str);
     t.is(color.hsl[2], hsl[2], str);
 
+    t.true(color.isTransparent === (color.alpha === 0));
+
     if (isNaN(hsl[0])) {
       t.true(isNaN(color.hsl[0]), str);
     } else {
