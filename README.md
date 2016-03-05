@@ -52,7 +52,7 @@ Parse a color string to a color object.
 ```javascript
 const red = Color('rgba(255,0,0,.5)');
 
-Color {
+{
   hex: 0xff0000,
   rgb: [255, 0, 0],
   hsl: [0, 1, 0.5],
@@ -69,6 +69,13 @@ Compute the contrast ratio between two colors.
 -   `colorA` **Color** The first color.
 -   `colorB` **Color** The second color.
 
+**Examples**
+
+```javascript
+contrast(Color('#ffc0cb'), Color('#ff69b4'));
+// => 1.721
+```
+
 Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The contrast ratio between the colors.
 
 ### luminance
@@ -78,6 +85,13 @@ Compute the relative luminance of a color.
 **Parameters**
 
 -   `color` **Color** The color to compute the luminance of.
+
+**Examples**
+
+```javascript
+luminance(Color('#7fffd4'));
+// => 0.808
+```
 
 Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The relative luminance of the color.
 
