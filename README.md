@@ -57,8 +57,7 @@ const red = Color('rgba(255,0,0,.5)');
   hex: 0xff0000,
   rgb: [255, 0, 0],
   hsl: [0, 1, 0.5],
-  alpha: 0.5,
-  isTransparent: false
+  alpha: 0.5
 }
 ```
 
