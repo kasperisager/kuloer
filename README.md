@@ -68,6 +68,19 @@ Compute the composite of several colors according to alpha compositing.
 
 -   `colors` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).&lt;Color>** The colors to compute the composite of.
 
+**Examples**
+
+```javascript
+composite([Color('red'), Color('rgba(0,0,255,.5)')]);
+
+{
+  hex: 0x800080,
+  rgb: [128, 0, 128],
+  hsl: [300, 1, 0.25],
+  alpha: 1
+}
+```
+
 Returns **Color** The composite color.
 
 ### contrast
