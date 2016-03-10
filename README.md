@@ -60,6 +60,16 @@ const red = Color('rgba(255,0,0,.5)');
 }
 ```
 
+### composite
+
+Compute the composite of several colors according to alpha compositing.
+
+**Parameters**
+
+-   `colors` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).&lt;Color>** The colors to compute the composite of.
+
+Returns **Color** The composite color.
+
 ### contrast
 
 Compute the contrast ratio between two colors.

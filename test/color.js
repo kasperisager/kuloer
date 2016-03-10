@@ -1,5 +1,5 @@
 import test from 'ava';
-import Color, {luminance, contrast} from '../lib/color';
+import Color, {luminance, contrast, composite} from '../lib/color';
 
 test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', async t => {
   const fixtures = [
@@ -67,5 +67,45 @@ test('contrast() is order-independant', async t => {
 
   for (const [a, b] of fixtures) {
     t.is(contrast(Color(a), Color(b)), contrast(Color(b), Color(a)));
+  }
+});
+
+test('composite() returns the composite of several colors', async t => {
+  const fixtures = [
+    [
+      ['rgba(0,0,0,0)', 'rgb(255,0,0)'],
+      [0xff0000, [255, 0, 0], [0, 1, 0.5], 1]
+    ], [
+      ['rgb(255,0,0)', 'rgb(0,0,255)'],
+      [0x0000ff, [0, 0, 255], [240, 1, 0.5], 1]
+    ], [
+      ['rgb(255,0,0)', 'rgba(0,0,255,.5)'],
+      [0x800080, [128, 0, 128], [300, 1, 0.25], 1]
+    ], [
+      ['rgba(255,0,0,.5)', 'rgba(0,0,255,.5)'],
+      [0x5500aa, [85, 0, 170], [270, 1, 0.33], 0.75]
+    ], [
+      ['rgb(145,74,19)', 'rgba(28,164,49,.7)'],
+      [0x3f8928, [63, 137, 40], [106, 0.55, 0.35], 1]
+    ], [
+      ['rgb(145,74,19)', 'rgba(28,164,49,.7)', 'rgba(45,21,134,.2)'],
+      [0x3b723b, [59, 114, 59], [120, 0.32, 0.34], 1]
+    ]
+  ];
+
+  for (const [colors, [hex, rgb, hsl, alpha]] of fixtures) {
+    const color = composite(colors.map(Color));
+
+    t.is(color.hex, hex, colors);
+    t.same(color.rgb, rgb, colors);
+    t.is(color.alpha, alpha, colors);
+    t.is(color.hsl[1], hsl[1], colors);
+    t.is(color.hsl[2], hsl[2], colors);
+
+    if (isNaN(hsl[0])) {
+      t.true(isNaN(color.hsl[0]), colors);
+    } else {
+      t.is(color.hsl[0], hsl[0], colors);
+    }
   }
 });
