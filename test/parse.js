@@ -38,7 +38,7 @@ test('parseRgb() parses an rgb(a) color string to an rgb * alpha tuple', async t
     ['rgba(  12, 34 , 56  , .8)', [[12, 34, 56], 0.8]],
     ['rgba(723, -83, 0, 1.3)', [[255, 0, 0], 1]],
     ['rgba(723, -83, 0, -.3)', [[255, 0, 0], 0]],
-    ['rgb(2746, 1000, -3271, .5)', [[255, 255, 0], 0.5]]
+    ['rgba(2746, 1000, -3271, .5)', [[255, 255, 0], 0.5]]
   ];
 
   for (const [str, parsed] of fixtures) {
