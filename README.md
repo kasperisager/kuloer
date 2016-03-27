@@ -21,6 +21,8 @@ $ npm install --save kuloer
 
 ## Usage
 
+[<img src=https://tonicdev.com/favicon.ico width=25 align=top> __Try out Kulør in your browser__](https://tonicdev.com/npm/kuloer)
+
 ```js
 import Color, {contrast} from 'kuloer';
 
