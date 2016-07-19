@@ -13,7 +13,7 @@ test('hexToRgb() converts a hex value to an rgb triple', async t => {
   ];
 
   for (const [hex, rgb] of fixtures) {
-    t.same(hexToRgb(hex), rgb);
+    t.deepEqual(hexToRgb(hex), rgb);
   }
 });
 
@@ -29,7 +29,7 @@ test('rgbToHex() converts an rgb triple to a hex value', async t => {
   ];
 
   for (const [rgb, hex] of fixtures) {
-    t.same(rgbToHex(rgb), hex);
+    t.deepEqual(rgbToHex(rgb), hex);
   }
 });
 
@@ -73,6 +73,6 @@ test('hslToRgb() converts an hsl triple to an rgb triple', async t => {
   ];
 
   for (const [hsl, rgb] of fixtures) {
-    t.same(hslToRgb(hsl), rgb);
+    t.deepEqual(hslToRgb(hsl), rgb);
   }
 });

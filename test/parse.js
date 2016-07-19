@@ -1,9 +1,18 @@
 import test from 'ava';
-import {parseHex, parseRgb, parseHsl} from '../lib/parse';
+import {parseNamed, parseHex, parseRgb, parseHsl} from '../lib/parse';
+
+test('parseNamed() parses a named color string to a hex * alpha tuple', async t => {
+  const fixtures = [
+    ['red', [0xff0000, 1]]
+  ];
+
+  for (const [str, parsed] of fixtures) {
+    t.deepEqual(parseNamed(str), parsed, str);
+  }
+});
 
 test('parseHex() parses a hex color string to a hex * alpha tuple', async t => {
   const fixtures = [
-    ['red', [0xff0000, 1]],
     ['#000000', [0x0, 1]],
     ['#ffffff', [0xffffff, 1]],
     ['#afebe3', [0xafebe3, 1]],
@@ -11,7 +20,7 @@ test('parseHex() parses a hex color string to a hex * alpha tuple', async t => {
   ];
 
   for (const [str, parsed] of fixtures) {
-    t.same(parseHex(str), parsed, str);
+    t.deepEqual(parseHex(str), parsed, str);
   }
 });
 
@@ -19,11 +28,12 @@ test('parseHex() returns black with alpha 0 when given an invalid hex color stri
   const fixtures = [
     'fff',
     'ffffff',
-    '#ff00ah'
+    '#ff00ah',
+    '#ff0h00'
   ];
 
   for (const str of fixtures) {
-    t.same(parseHex(str), [0x0, 0], str);
+    t.deepEqual(parseHex(str), [0x0, 0], str);
   }
 });
 
@@ -52,8 +62,8 @@ test('parseRgb() parses an rgb(a) color string to an rgb * alpha tuple', async t
 
   for (const [str, [rgb, alpha]] of fixtures) {
     const [prgb, palpha] = parseRgb(str);
-    t.same(prgb, rgb, str);
-    t.is(palpha, alpha);
+    t.deepEqual(prgb, rgb, str);
+    t.is(palpha, alpha, str);
   }
 });
 
@@ -72,7 +82,7 @@ test('parseRgb() returns black with alpha 0 when given an invalid rgb(a) color s
   ];
 
   for (const str of fixtures) {
-    t.same(parseRgb(str), [[0, 0, 0], 0], str);
+    t.deepEqual(parseRgb(str), [[0, 0, 0], 0], str);
   }
 });
 
@@ -86,7 +96,7 @@ test('parseHsl() parses an hsl(a) color string to an hsl * alpha tuple', async t
   ];
 
   for (const [str, parsed] of fixtures) {
-    t.same(parseHsl(str), parsed, str);
+    t.deepEqual(parseHsl(str), parsed, str);
   }
 });
 
