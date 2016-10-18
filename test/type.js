@@ -1,9 +1,9 @@
 import test from 'ava';
-import type, {HEX, RGB, HSL, UNKNOWN} from '../lib/type';
+import type, {NAMED, HEX, RGB, HSL, UNKNOWN} from '../lib/type';
 
-test('type() guesses the type of a valid color string', async t => {
+test('type() guesses the type of a (potentially) valid color string', async t => {
   const fixtures = [
-    ['red', HEX],
+    ['red', NAMED],
     ['#ff6600', HEX],
     ['#f60', HEX],
     ['rgb(173, 18, 45)', RGB],
@@ -20,7 +20,7 @@ test('type() guesses the type of a valid color string', async t => {
 test('type() returns UNKNOWN when given a color string it cannot guess', async t => {
   const fixtures = [
     'foo',
-    '#ffff',
+    'ffff',
     'rgc(173, 28, 111)',
     'hsb(13, 50%, 12%)'
   ];

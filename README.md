@@ -36,12 +36,6 @@ contrast(pink, blue);
 
 ### Color
 
-Parse a color string to a color object.
-
-**Parameters**
-
--   `color` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The color string to parse.
-
 **Properties**
 
 -   `hex` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The color represented as an rgb hex value.
@@ -49,12 +43,20 @@ Parse a color string to a color object.
 -   `hsl` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).&lt;[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)>** The color represented as an hsl triple.
 -   `alpha` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The alpha value of the color.
 
+#### constructor
+
+Parse a color string to a color object.
+
+**Parameters**
+
+-   `color` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** The color string to parse.
+
 **Examples**
 
 ```javascript
-const red = Color('rgba(255,0,0,.5)');
+const red = new Color('rgba(255,0,0,.5)');
 
-{
+Color {
   hex: 0xff0000,
   rgb: [255, 0, 0],
   hsl: [0, 1, 0.5],
@@ -75,7 +77,7 @@ Compute the composite of several colors according to alpha compositing.
 ```javascript
 composite([Color('red'), Color('rgba(0,0,255,.5)')]);
 
-{
+Color {
   hex: 0x800080,
   rgb: [128, 0, 128],
   hsl: [300, 1, 0.25],

@@ -13,10 +13,10 @@ test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', async t 
   ];
 
   for (const [str, [hex, rgb, hsl, alpha]] of fixtures) {
-    const color = Color(str);
+    const color = new Color(str);
 
     t.is(color.hex, hex, str);
-    t.same(color.rgb, rgb, str);
+    t.deepEqual(color.rgb, rgb, str);
     t.is(color.alpha, alpha, str);
     t.is(color.hsl[1], hsl[1], str);
     t.is(color.hsl[2], hsl[2], str);
@@ -41,7 +41,7 @@ test('luminance() returns the relative luminance of a color', async t => {
   ];
 
   for (const [c, l] of fixtures) {
-    t.true(abs(luminance(Color(c)) - l) < 1e-3);
+    t.true(abs(luminance(new Color(c)) - l) < 1e-3);
   }
 });
 
@@ -55,7 +55,7 @@ test('contrast() returns the contrast ratio between two colors', async t => {
   ];
 
   for (const [a, b, c] of fixtures) {
-    t.true(abs(contrast(Color(a), Color(b)) - c) < 1e-3);
+    t.true(abs(contrast(new Color(a), new Color(b)) - c) < 1e-3);
   }
 });
 
@@ -66,7 +66,7 @@ test('contrast() is order-independant', async t => {
   ];
 
   for (const [a, b] of fixtures) {
-    t.is(contrast(Color(a), Color(b)), contrast(Color(b), Color(a)));
+    t.is(contrast(new Color(a), new Color(b)), contrast(new Color(b), new Color(a)));
   }
 });
 
@@ -94,10 +94,10 @@ test('composite() returns the composite of several colors', async t => {
   ];
 
   for (const [colors, [hex, rgb, hsl, alpha]] of fixtures) {
-    const color = composite(colors.map(Color));
+    const color = composite(colors.map(c => new Color(c)));
 
     t.is(color.hex, hex, colors);
-    t.same(color.rgb, rgb, colors);
+    t.deepEqual(color.rgb, rgb, colors);
     t.is(color.alpha, alpha, colors);
     t.is(color.hsl[1], hsl[1], colors);
     t.is(color.hsl[2], hsl[2], colors);
