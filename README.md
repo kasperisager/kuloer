@@ -26,8 +26,8 @@ $ npm install --save kuloer
 ```js
 import Color, {contrast} from 'kuloer';
 
-const pink = Color('pink');
-const blue = Color('#00f');
+const pink = new Color('pink');
+const blue = new Color('#00f');
 
 contrast(pink, blue);
 ```
