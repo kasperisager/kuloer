@@ -21,7 +21,7 @@ $ npm install --save kuloer
 
 ## Usage
 
-[<img src="https://www.npmjs.com/static/images/runkit.svg" width=24 align=top> __Try out Kulør in your browser__](https://tonicdev.com/npm/kuloer)
+[<img src="https://www.npmjs.com/static/images/runkit.svg" width=24 align=top> __Try out Kulør in your browser__](https://runkit.com/npm/kuloer)
 
 ```js
 import Color, {contrast} from 'kuloer';
