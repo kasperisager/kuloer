@@ -1,9 +1,9 @@
 import test from 'ava';
 import {parseNamed, parseHex, parseRgb, parseHsl} from '../lib/parse';
 
-test('parseNamed() parses a named color string to a hex * alpha tuple', async t => {
+test('parseNamed() parses a named color string to a hex * alpha tuple', t => {
   const fixtures = [
-    ['red', [0xff0000, 1]]
+    ['red', [0xFF0000, 1]]
   ];
 
   for (const [str, parsed] of fixtures) {
@@ -11,12 +11,12 @@ test('parseNamed() parses a named color string to a hex * alpha tuple', async t 
   }
 });
 
-test('parseHex() parses a hex color string to a hex * alpha tuple', async t => {
+test('parseHex() parses a hex color string to a hex * alpha tuple', t => {
   const fixtures = [
     ['#000000', [0x0, 1]],
-    ['#ffffff', [0xffffff, 1]],
-    ['#afebe3', [0xafebe3, 1]],
-    ['#f60', [0xff6600, 1]]
+    ['#ffffff', [0xFFFFFF, 1]],
+    ['#afebe3', [0xAFEBE3, 1]],
+    ['#f60', [0xFF6600, 1]]
   ];
 
   for (const [str, parsed] of fixtures) {
@@ -24,7 +24,7 @@ test('parseHex() parses a hex color string to a hex * alpha tuple', async t => {
   }
 });
 
-test('parseHex() returns black with alpha 0 when given an invalid hex color string', async t => {
+test('parseHex() returns black with alpha 0 when given an invalid hex color string', t => {
   const fixtures = [
     'fff',
     'ffffff',
@@ -37,7 +37,7 @@ test('parseHex() returns black with alpha 0 when given an invalid hex color stri
   }
 });
 
-test('parseRgb() parses an rgb(a) color string to an rgb * alpha tuple', async t => {
+test('parseRgb() parses an rgb(a) color string to an rgb * alpha tuple', t => {
   const fixtures = [
     ['rgb(0, 0, 0)', [[0, 0, 0], 1]],
     ['rgb(12, 34, 56)', [[12, 34, 56], 1]],
@@ -69,7 +69,7 @@ test('parseRgb() parses an rgb(a) color string to an rgb * alpha tuple', async t
   }
 });
 
-test('parseRgb() returns black with alpha 0 when given an invalid rgb(a) color string', async t => {
+test('parseRgb() returns black with alpha 0 when given an invalid rgb(a) color string', t => {
   const fixtures = [
     'rgb(255, 255, 255, 255)',
     'rgb(255, 255)',
@@ -88,7 +88,7 @@ test('parseRgb() returns black with alpha 0 when given an invalid rgb(a) color s
   }
 });
 
-test('parseHsl() parses an hsl(a) color string to an hsl * alpha tuple', async t => {
+test('parseHsl() parses an hsl(a) color string to an hsl * alpha tuple', t => {
   const fixtures = [
     ['hsl(210, 65%, 13%)', [[210, 0.65, 0.13], 1]],
     ['hsl(  210, 65%  , 13%  )', [[210, 0.65, 0.13], 1]],
@@ -104,7 +104,7 @@ test('parseHsl() parses an hsl(a) color string to an hsl * alpha tuple', async t
   }
 });
 
-test('parseHsl() returns black with alpha 0 when given an invalid hsl(a) color string', async t => {
+test('parseHsl() returns black with alpha 0 when given an invalid hsl(a) color string', t => {
   const fixtures = [
     'hsl(153,15%,74%,16%)',
     'hsl(14, 97%)',

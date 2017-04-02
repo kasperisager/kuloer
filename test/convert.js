@@ -1,15 +1,15 @@
 import test from 'ava';
 import {hexToRgb, rgbToHex, rgbToHsl, hslToRgb} from '../lib/convert';
 
-test('hexToRgb() converts a hex value to an rgb triple', async t => {
+test('hexToRgb() converts a hex value to an rgb triple', t => {
   const fixtures = [
     [0x000000, [0, 0, 0]],
     [0x808080, [128, 128, 128]],
-    [0xffffff, [255, 255, 255]],
-    [0x8675b7, [134, 117, 183]],
-    [0xff9289, [255, 146, 137]],
-    [0x5ebeb2, [94, 190, 178]],
-    [0xecd368, [236, 211, 104]]
+    [0xFFFFFF, [255, 255, 255]],
+    [0x8675B7, [134, 117, 183]],
+    [0xFF9289, [255, 146, 137]],
+    [0x5EBEB2, [94, 190, 178]],
+    [0xECD368, [236, 211, 104]]
   ];
 
   for (const [hex, rgb] of fixtures) {
@@ -17,15 +17,15 @@ test('hexToRgb() converts a hex value to an rgb triple', async t => {
   }
 });
 
-test('rgbToHex() converts an rgb triple to a hex value', async t => {
+test('rgbToHex() converts an rgb triple to a hex value', t => {
   const fixtures = [
     [[0, 0, 0], 0x000000],
     [[128, 128, 128], 0x808080],
-    [[255, 255, 255], 0xffffff],
-    [[134, 117, 183], 0x8675b7],
-    [[255, 146, 137], 0xff9289],
-    [[94, 190, 178], 0x5ebeb2],
-    [[236, 211, 104], 0xecd368]
+    [[255, 255, 255], 0xFFFFFF],
+    [[134, 117, 183], 0x8675B7],
+    [[255, 146, 137], 0xFF9289],
+    [[94, 190, 178], 0x5EBEB2],
+    [[236, 211, 104], 0xECD368]
   ];
 
   for (const [rgb, hex] of fixtures) {
@@ -33,7 +33,7 @@ test('rgbToHex() converts an rgb triple to a hex value', async t => {
   }
 });
 
-test('rgbToHsl() converts an rgb triple to an hsl triple', async t => {
+test('rgbToHsl() converts an rgb triple to an hsl triple', t => {
   const fixtures = [
     [[0, 0, 0], [NaN, 0, 0]],
     [[128, 128, 128], [NaN, 0, 0.5]],
@@ -58,7 +58,7 @@ test('rgbToHsl() converts an rgb triple to an hsl triple', async t => {
   }
 });
 
-test('hslToRgb() converts an hsl triple to an rgb triple', async t => {
+test('hslToRgb() converts an hsl triple to an rgb triple', t => {
   const fixtures = [
     [[NaN, 0, 0], [0, 0, 0]],
     [[NaN, 0, 0.5], [128, 128, 128]],

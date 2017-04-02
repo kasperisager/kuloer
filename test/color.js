@@ -1,15 +1,15 @@
 import test from 'ava';
 import Color, {luminance, contrast, composite} from '../lib/color';
 
-test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', async t => {
+test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', t => {
   const fixtures = [
-    ['red', [0xff0000, [255, 0, 0], [0, 1, 0.5], 1]],
+    ['red', [0xFF0000, [255, 0, 0], [0, 1, 0.5], 1]],
     ['transparent', [0x0, [0, 0, 0], [0, 0, 0], 0]],
-    ['#0000ff', [0x0000ff, [0, 0, 255], [240, 1, 0.5], 1]],
-    ['rgb(255, 0, 0)', [0xff0000, [255, 0, 0], [0, 1, 0.5], 1]],
-    ['rgba(255, 0, 0, .5)', [0xff0000, [255, 0, 0], [0, 1, 0.5], 0.5]],
-    ['hsl(240, 100%, 50%)', [0x0000ff, [0, 0, 255], [240, 1, 0.5], 1]],
-    ['hsla(240, 100%, 50%, 0.5)', [0x0000ff, [0, 0, 255], [240, 1, 0.5], 0.5]]
+    ['#0000ff', [0x0000FF, [0, 0, 255], [240, 1, 0.5], 1]],
+    ['rgb(255, 0, 0)', [0xFF0000, [255, 0, 0], [0, 1, 0.5], 1]],
+    ['rgba(255, 0, 0, .5)', [0xFF0000, [255, 0, 0], [0, 1, 0.5], 0.5]],
+    ['hsl(240, 100%, 50%)', [0x0000FF, [0, 0, 255], [240, 1, 0.5], 1]],
+    ['hsla(240, 100%, 50%, 0.5)', [0x0000FF, [0, 0, 255], [240, 1, 0.5], 0.5]]
   ];
 
   for (const [str, [hex, rgb, hsl, alpha]] of fixtures) {
@@ -29,7 +29,7 @@ test('Color() can be constructed from hex, rgb(a), and hsl(a) strings', async t 
   }
 });
 
-test('luminance() returns the relative luminance of a color', async t => {
+test('luminance() returns the relative luminance of a color', t => {
   const {abs} = Math;
 
   const fixtures = [
@@ -45,7 +45,7 @@ test('luminance() returns the relative luminance of a color', async t => {
   }
 });
 
-test('contrast() returns the contrast ratio between two colors', async t => {
+test('contrast() returns the contrast ratio between two colors', t => {
   const {abs} = Math;
 
   const fixtures = [
@@ -59,7 +59,7 @@ test('contrast() returns the contrast ratio between two colors', async t => {
   }
 });
 
-test('contrast() is order-independant', async t => {
+test('contrast() is order-independant', t => {
   const fixtures = [
     ['#ffffff', '#000000'],
     ['#ffc0cb', '#ff69b4']
@@ -70,26 +70,26 @@ test('contrast() is order-independant', async t => {
   }
 });
 
-test('composite() returns the composite of several colors', async t => {
+test('composite() returns the composite of several colors', t => {
   const fixtures = [
     [
       ['rgba(0,0,0,0)', 'rgb(255,0,0)'],
-      [0xff0000, [255, 0, 0], [0, 1, 0.5], 1]
+      [0xFF0000, [255, 0, 0], [0, 1, 0.5], 1]
     ], [
       ['rgb(255,0,0)', 'rgb(0,0,255)'],
-      [0x0000ff, [0, 0, 255], [240, 1, 0.5], 1]
+      [0x0000FF, [0, 0, 255], [240, 1, 0.5], 1]
     ], [
       ['rgb(255,0,0)', 'rgba(0,0,255,.5)'],
       [0x800080, [128, 0, 128], [300, 1, 0.25], 1]
     ], [
       ['rgba(255,0,0,.5)', 'rgba(0,0,255,.5)'],
-      [0x5500aa, [85, 0, 170], [270, 1, 0.33], 0.75]
+      [0x5500AA, [85, 0, 170], [270, 1, 0.33], 0.75]
     ], [
       ['rgb(145,74,19)', 'rgba(28,164,49,.7)'],
-      [0x3f8928, [63, 137, 40], [106, 0.55, 0.35], 1]
+      [0x3F8928, [63, 137, 40], [106, 0.55, 0.35], 1]
     ], [
       ['rgb(145,74,19)', 'rgba(28,164,49,.7)', 'rgba(45,21,134,.2)'],
-      [0x3b723b, [59, 114, 59], [120, 0.32, 0.34], 1]
+      [0x3B723B, [59, 114, 59], [120, 0.32, 0.34], 1]
     ]
   ];
 
