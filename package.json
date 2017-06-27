@@ -1,6 +1,6 @@
 {
   "name": "kuloer",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "A lightning-fast CSS color parsing and manipulation library with a tiny footprint",
   "license": "MIT",
   "repository": "kasperisager/kuloer",
