@@ -16,7 +16,7 @@ Kulør is a library for working with color units from the [CSS3 Color Module](ht
 ## Installation
 
 ```sh
-$ npm install --save kuloer
+$ yarn add kuloer
 ```
 
 ## Usage
