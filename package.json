@@ -1,6 +1,6 @@
 {
   "name": "kuloer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightning-fast CSS color parsing and manipulation library with a tiny footprint",
   "license": "MIT",
   "repository": "kasperisager/kuloer",
@@ -12,7 +12,6 @@
     "prepublish": "babel lib -d dist"
   },
   "main": "dist/color.js",
-  "jsnext:main": "lib/color.js",
   "files": [
     "dist",
     "lib"
